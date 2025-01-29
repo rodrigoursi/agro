@@ -1,0 +1,19 @@
+#contenedor-datos-tabla .selecc {
+  background-color: rgba(0, 0, 255, 0.3) !important; /* Azul semi-transparente */
+}
+
+#selecc {
+  background-color: blue !important;
+}
+
+.form-buscador {
+  margin: 1% 1%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.form-buscador select, .form-buscador input {
+  width: 20%;
+  min-width: 150px;
+}
