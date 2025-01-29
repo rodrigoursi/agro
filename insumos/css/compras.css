@@ -1,0 +1,119 @@
+.cont-selecProd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cont-selecProd #AMBproducto {
+  width: 40%;
+  display: inline-block;
+}
+
+.cont-selecProd .cont-cant {
+  width: 20%;
+}
+
+.cont-selecProd #ABMcant {
+  display: inline-block;
+  width: 70%;
+}
+
+.cont-selecProd .cont-precio {
+  width: 25%;
+}
+
+.cont-selecProd #ABMprecio {
+  display: inline-block;
+  width: 75%;
+}
+
+.cont-selecProd #agregar {
+  width:8%;
+  height:40px;
+}
+
+.cont-selecProd #agregar img {
+  height:100%;
+  width:100%;
+}
+
+#formABM .oculto{
+  display: none;
+}
+
+.listProd {
+  list-style-type: none;      /* Elimina los puntos de lista */
+  border: 2px solid #ccc;     /* Borde alrededor de la lista */
+  border-radius: 8px;         /* Bordes redondeados */
+  padding: 10px;              /* Espacio interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  max-width: 60%;
+}
+
+.listProd li div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listProd li {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.3s ease; /* Transiciones */
+}
+
+/* Animación al agregar el último elemento */
+.listProd li:last-child {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.6s forwards ease;
+}
+
+/* Definición de la animación */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 1365px) {
+  .cont-selecProd #AMBproducto {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .cont-selecProd .cont-cant {
+    width: 35%;
+  }
+  .cont-selecProd .cont-precio {
+    width: 40%;
+  }
+  .cont-selecProd #agregarProd {
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .listProd {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .cont-selecProd .cont-precio {
+    width: 51%;
+    margin-bottom: 4%;
+  }
+  .cont-selecProd .cont-cant {
+    width: 40%;
+    margin-bottom: 4%;
+  }
+  .cont-selecProd #agregar {
+    width: 40%;
+    margin: 0 30%
+  }
+  .listProd {
+    max-width: 100%;
+  }
+}

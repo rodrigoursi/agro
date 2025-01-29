@@ -1,0 +1,12 @@
+.footer {
+  font-style: italic;
+  font-size: 4em;
+  text-align: center;
+  background-color: rgba(50, 50, 50, 0.5);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: white;
+}

@@ -1,0 +1,8 @@
+insert into rol(nombre) values('ADMIN'), ('OPERARIO');
+insert into usuarios(nombre_apellido, contrasenia, rol) values('ADMINISTRADOR', '1234', 1), ('PEDRO GARCIA', '1234', 2);
+insert into unidades_medida(nombre)values('UNIDAD');
+insert into productos(descripcion, unidad_medida)values('PRODUCTO 1', 1), ('PRODUCTO 2', 1);
+insert into destinos(nombre)values('DESTINO 1'), ('DESTINO 2');
+insert into lotes(nombre, destino)values('LOTE 1', 1), ('LOTE 2', 1), ('LOTE 1', 2);
+insert into monedas(nombre)values('ARS'), ('USD');
+insert into mediosPagos(nombre) values('EFECTIVO'), ('CHEQUE');

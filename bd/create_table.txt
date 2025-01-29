@@ -1,0 +1,127 @@
+create table rol (
+id tinyint primary key auto_increment,
+nombre varchar(20) not null
+);
+create table usuarios (
+id bigint primary key auto_increment,
+nombre_apellido varchar(20) unique not null,
+contrasenia varchar(12) not null,
+rol tinyint not null,
+habilitado bool default true,
+foreign key (rol) references rol (id)
+);
+create table usuarios_token (
+id bigint primary key auto_increment,
+usuario bigint not null,
+token varchar(120) unique not null,
+estado bool default true,
+fecha datetime default now(),
+cantidad_dias tinyint default 1,
+foreign key (usuario) references usuarios (id)
+);
+create table proveedores (
+id tinyint primary key auto_increment,
+razon_social varchar(60) not null,
+cuit bigint,
+direccion varchar(80) not null,
+localidad varchar(60) not null,
+telefono varchar(20),
+habilitado bool default true
+);
+create table unidades_medida (
+id tinyint primary key auto_increment,
+nombre varchar(20) not null
+);
+create table productos (
+id int primary key auto_increment,
+descripcion text,
+unidad_medida tinyint not null,
+foreign key (unidad_medida) references unidades_medida (id)
+);
+create table mediosPagos (
+id tinyint primary key auto_increment,
+nombre varchar(20) not null
+); 
+create table condiciones (
+id tinyint primary key auto_increment,
+nombre varchar(20) not null
+);
+create table monedas (
+id tinyint primary key auto_increment,
+nombre varchar(10) not null
+);
+create table compras (
+id bigint primary key auto_increment,
+fecha datetime default now(),
+factura bigint not null unique,
+importe decimal(20, 2) not null,
+moneda tinyint not null,
+proveedor tinyint not null,
+condicion tinyint not null,
+usuario bigint not null,
+foreign key (moneda) references monedas (id),
+foreign key (proveedor) references proveedores (id),
+foreign key (condicion) references condiciones (id),
+foreign key (usuario) references usuarios (id)
+);
+create table compraDet (
+id bigint primary key auto_increment,
+producto int not null,
+precio_unit decimal(20, 2) not null,
+cantidad decimal(12, 2) not null,
+precio_total decimal(20, 2) not null,
+compra bigint not null,
+retirado bool default false,
+foreign key (producto) references productos (id),
+foreign key (compra) references compras(id)
+);
+create table destinos (
+id int primary key auto_increment,
+nombre varchar(60) not null
+);
+create table lotes (
+id bigint primary key auto_increment,
+nombre varchar(30) not null,
+destino int not null,
+foreign key (destino) references destinos (id)
+);
+create table retiros (
+id bigint primary key auto_increment,
+fecha datetime default now(),
+remito bigint not null unique,
+lote bigint not null,
+usuario bigint not null,
+compra bigint not null,
+foreign key (lote) references lotes (id),
+foreign key (usuario) references usuarios (id),
+foreign key (compra) references compras(id)
+);
+create table retiroDet (
+id bigint primary key auto_increment,
+producto int not null,
+cantidad decimal(12, 2) not null,
+retiro bigint not null,
+foreign key (producto) references productos (id),
+foreign key (retiro) references retiros(id)
+);
+create table pagos (
+id bigint primary key auto_increment,
+fecha datetime default now(),
+compra bigint not null,
+importe decimal(20, 2) not null,
+usuario bigint not null,
+medioPago tinyint not null,
+foreign key (medioPago) references mediosPagos(id),
+foreign key (compra) references compras (id),
+foreign key (usuario) references usuarios (id)
+);
+create table cheques (
+id bigint primary key auto_increment,
+fechaPago datetime not null,
+numero bigint not null unique,
+importe decimal(20, 2) not null,
+pago bigint not null,
+usuario bigint not null,
+foreign key (pago) references pagos (id),
+foreign key (usuario) references usuarios (id)
+);

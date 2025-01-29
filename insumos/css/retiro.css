@@ -1,0 +1,73 @@
+#formABM #ABMcant {
+  display: inline;
+}
+
+#formABM #agregar {
+  width: 5%;
+}
+
+#formABM .oculto{
+  display: none;
+}
+
+.listProd {
+  list-style-type: none;      /* Elimina los puntos de lista */
+  border: 2px solid #ccc;     /* Borde alrededor de la lista */
+  border-radius: 8px;         /* Bordes redondeados */
+  padding: 10px;              /* Espacio interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  max-width: 60%;
+}
+
+.listProd li div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.listProd li {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.3s ease; /* Transiciones */
+}
+
+/* Animación al agregar el último elemento */
+.listProd li:last-child {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.6s forwards ease;
+}
+
+/* Definición de la animación */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 1365px) {
+  #formABM #ABMcant {
+    width: 20%;
+  }
+  #formABM #agregar {
+    width: 7%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #formABM #ABMcant {
+    width: 30%;
+  }
+  #formABM #agregar {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #formABM #ABMcant {
+    width: 38%;
+  }
+  #formABM #agregar {
+    width: 15%;
+  }
+}

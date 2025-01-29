@@ -1,0 +1,65 @@
+body {
+  background-image: url("./../assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 700px;
+}
+
+.contenedorPrincipal {
+  height: 100vh;
+  text-align: center;
+}
+
+.contenedorPrincipal-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.contenedorLogin {
+  width: 30%;
+  color: white;
+}
+
+.contenedorLogin form input {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contenedorLogin form input:focus {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.contenedorPanel {
+  margin-top: 5%;
+  width: 80%;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+
+.panel-opciones {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.panel-opciones button {
+  width: 15%;
+}
+
+  @media screen and (max-width: 768px) {
+    .contenedorLogin {
+      width: 75%;
+    }
+
+    .panel-opciones {
+      flex-direction: column;
+    }
+
+    .panel-opciones button {
+      width: 80%;
+      margin: 5% 10%;
+    }
+  }
